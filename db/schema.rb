@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20181002203418) do
 
   create_table "tareas", force: :cascade do |t|
-    t.string "tirulo"
+    t.string "titulo"
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
