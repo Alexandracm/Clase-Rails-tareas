@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get 'tareas/new', to:'tareas#new'
   post 'tareas', to: 'tareas#create'
   get 'tareas/:id', to: 'tareas#show'
+  delete 'tareas/:id', to: 'tareas#destroy'
+  get 'tareas/:id/edit', to: 'tareas#edit'
+  put 'tareas/:id'  to: 'trabajos#update'
   get 'bienvenido/index'
   root 'bienvenido#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
