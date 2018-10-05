@@ -12,7 +12,7 @@ before_action :set_tarea, except:[:index, :new, :create]
 
   end
    def create
-  	@tarea = Tarea.new(titulo: params[:tarea][:titulo], descripcion:params[:tarea][:descripcion])
+  	@tarea = Tarea.new(tarea_params)
   	
   	if @tarea.save 
   	#este metodo hace el insert into(tareas y descripcion) values (formulario)
@@ -40,7 +40,7 @@ end
 
      def update
      #@tarea= Tarea.find (params[:id])
-     if @tarea.update(titulo: params[:tarea][:titulo], descripcion:params[:tarea] [:descripcion]) 
+     if @tarea.update(tarea_params) 
      redirect_to @tarea # cambio =>controller:"tareas", action:"show", id: @tarea.id
 
      else
@@ -52,8 +52,15 @@ private #metodos que solo funcionan dentro de esta clase
   def set_tarea
       @tarea= Tarea.find (params[:id])
    end
-   
+
+def tarea_params
+   params.require(:tarea).permit(:titulo, :descripcion)
 end
+
+end
+
+
+
 
 
 
