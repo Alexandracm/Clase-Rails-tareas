@@ -1,6 +1,6 @@
 <h1>Mis Tareas</h1>
 <table class="table">
-	<thead class=""thead-dark>
+	<thead class="thead-dark">
 	<th>Tarea</th>
 	<th>Editar</th>
 	<th>Eliminar</th>
@@ -10,9 +10,9 @@
 
 
 <tr>
-  <td><%= link_to tarea.titulo, {controller:"tareas", action:"show", id: tarea.id}%></td>
-  <td><button class="btn btn-warning">Editar</button></td>
-   <td><%= link_to "Eliminar", {controller:"tareas", action:"destroy", id: tarea.id} , method: "delete", data: { confirm: "¿Estás seguro?"}, class:"btn btn-danger"%></td>
+  <td><%= link_to tarea.titulo, tarea %></td>
+  <td><%= link_to "Editar", edit_tarea_path(tarea) ,class:"btn btn-warning"%>
+   <td><%= link_to "Eliminar",tarea, method: "delete", data: { confirm: "¿Estás seguro?"}, class:"btn btn-danger"%></td>
 </tr>
 	<% end %>
 	

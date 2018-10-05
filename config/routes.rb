@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'tareas', to: 'tareas#index'
-  get 'tareas/new', to:'tareas#new'
-  post 'tareas', to: 'tareas#create'
-  get 'tareas/:id', to: 'tareas#show'
-  delete 'tareas/:id', to: 'tareas#destroy'
-  get 'tareas/:id/edit', to: 'tareas#edit'
-  put 'tareas/:id'  to: 'trabajos#update'
+  resources :tareas
+  #get 'tareas', to: 'tareas#index'
+  #get 'tareas/new', to:'tareas#new'
+  #post 'tareas', to: 'tareas#create'
+  #get 'tareas/:id', to: 'tareas#show'
+ # delete 'tareas/:id', to: 'tareas#destroy'
+  #get 'tareas/:id/edit', to: 'tareas#edit'
+ # put 'tareas/:id',  to: 'tareas#update'
+  
   get 'bienvenido/index'
   root 'bienvenido#index'
 

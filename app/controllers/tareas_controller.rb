@@ -1,4 +1,7 @@
 class TareasController < ApplicationController
+
+before_action :set_tarea, except:[:index, :new, :create]
+
   def index
   	@tareas = Tarea.all
   	#select * from tareas
@@ -13,25 +16,44 @@ class TareasController < ApplicationController
   	
   	if @tarea.save 
   	#este metodo hace el insert into(tareas y descripcion) values (formulario)
-  	redirect_to controller:'tareas', action:'show',id:@tarea.id
+  	redirect_to @tarea #action show  cambio controller:'tareas', action:'show',id:@tarea.id
   	else
 
   		render :new
     end
 end
   	def show
-  		@tarea =Tarea.find(params[:id])
+  		#@tarea =Tarea.find(params[:id])
   		#selectfrom tareas where id=
     
   	end
     def destroy
-     @tarea =Tarea.find(params[:id])
+     #@tarea =Tarea.find(params[:id])
      @tarea.destroy
-     redirect_to controller:"tareas", action:"index"
+     redirect_to tareas_path # cambio controller:"tareas", action:"index"
      #para eliminar tareas 
     end
 
     def edit
-     @tarea =Tarea.find(params[:id]) 
+     #@tarea =Tarea.find(params[:id])
+      end
+
+     def update
+     #@tarea= Tarea.find (params[:id])
+     if @tarea.update(titulo: params[:tarea][:titulo], descripcion:params[:tarea] [:descripcion]) 
+     redirect_to @tarea # cambio =>controller:"tareas", action:"show", id: @tarea.id
+
+     else
+    render :edit
     end
+  end
+
+private #metodos que solo funcionan dentro de esta clase
+  def set_tarea
+      @tarea= Tarea.find (params[:id])
+   end
+   
 end
+
+
+
