@@ -1,5 +1,6 @@
 class TareasController < ApplicationController
 
+before_action :authenticate_usuario!, except:[:index, :show]
 before_action :set_tarea, except:[:index, :new, :create]
 
   def index
@@ -13,6 +14,7 @@ before_action :set_tarea, except:[:index, :new, :create]
   end
    def create
   	@tarea = Tarea.new(tarea_params)
+    @tarea.usuario = current_usuario
   	
   	if @tarea.save 
   	#este metodo hace el insert into(tareas y descripcion) values (formulario)

@@ -1,9 +1,19 @@
+<% if usuario_signed_in? %>
+<h1> Bienvenido <%=current_usuario.email %></h1>
+
+<%else%>
 <h1>Bienvenidos a mi sitio</h1>
+
+<%end%>
+
 <p>Mi primer sitio en Rails</p>
-<% frutas = ['manzana','pera','mango']%>
+
+
+
+<!--<% frutas = ['manzana','pera','mango']%>
 <ul>
 <%frutas.each do |fruta| %>
 	<li> <%=fruta %>  </li>
 
 	<% end %>
-</ul>
+</ul>-->
