@@ -25,6 +25,7 @@ before_action :set_tarea, except:[:index, :new, :create]
     end
 end
   	def show
+      @comentario = Comentario.new
   		#@tarea =Tarea.find(params[:id])
   		#selectfrom tareas where id=
     
